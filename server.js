@@ -82,10 +82,10 @@ bot.dialog('/warOrChess', [
             session.endDialog();
         }
     },function (session, results) { 
-        if (results.response!="sure"){
+        if (results.response.includes("war")){
             builder.Prompts.text(session, "How about a nice game of chess instead?");
         }
-        else if (results.response.includes("okay")){
+        else {
             session.userData.game = "chess";
         }
     },function (session, results) {
