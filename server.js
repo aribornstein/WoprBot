@@ -48,7 +48,7 @@ bot.dialog('/', [
     function (session, results) {
         builder.Prompts.text(session, 'Hello '+session.userData.name+' how are you today?');
     },function (session, results) {
-        if (results.response.includes("good")){
+        if (results.response.toLowerCase().includes("good")){
             session.beginDialog('/warOrChess'); 
         }
     },function name(session,results) {
@@ -74,7 +74,7 @@ bot.dialog('/warOrChess', [
         },
         function (session, results) {
             
-        if(results.response.includes("yes")){
+        if(results.response.toLowerCase().includes("yes")){
             builder.Prompts.text(session, "How about a nice game of chess?");
         }
         else {
@@ -82,7 +82,7 @@ bot.dialog('/warOrChess', [
             session.endDialog();
         }
     },function (session, results) { 
-        if (results.response.includes("war")){
+        if (results.response.toLowerCase().includes("war")){
             builder.Prompts.text(session, "How about a nice game of chess instead?");
         }
         else {
